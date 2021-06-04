@@ -337,8 +337,10 @@ def compute_forward_returns(factor,
     df = df[column_list]
 
     df.index.levels[0].freq = freq
-    df.index.levels[0].name = "date"
-    df.index.levels[1].name = "asset"
+    # https://github.com/quantopian/alphalens/pull/364/files
+    # df.index.levels[0].name = "date"
+    # df.index.levels[1].name = "asset"
+    df.index.set_names(['date', 'asset'], inplace=True)
 
     return df
 
