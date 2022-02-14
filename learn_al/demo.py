@@ -57,7 +57,7 @@ if __name__ == '__main__':
     # al.tears.create_returns_tear_sheet(factor_data, long_short=True, group_neutral=False, by_group=False)
     # al.tears.create_information_tear_sheet(factor_data, group_neutral=False, by_group=False)
     # al.tears.create_turnover_tear_sheet(factor_data)
-    # ic = al.performance.mean_information_coefficient(data, by_time='1y')
+    # ic = al.performance.mean_information_coefficient(factor_data, by_time='1y')
     #
     # attr = ic.index.strftime('%Y')
     # v1 = list(ic['10D'].round(2))

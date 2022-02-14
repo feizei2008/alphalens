@@ -9,6 +9,14 @@ from pandas import DataFrame
 from data_feed.tushare_feed import get_cal_date
 
 
+father_dir = os.path.abspath(os.path.dirname(os.getcwd()))  # 上一级目录
+grandfather_dir = os.path.abspath(os.path.join(os.getcwd(), "../.."))  # 上上级目录
+DCE_path = os.path.join(father_dir, 'data', 'tushare', 'DCE\\')
+SHF_path = os.path.join(father_dir, 'data', 'tushare', 'SHF\\')
+ZCE_path = os.path.join(father_dir, 'data', 'tushare', 'ZCE\\')
+prices_path = os.path.join(father_dir, 'data', 'prices\\')
+factors_path = os.path.join(father_dir, 'data', 'factors\\')
+
 # data = pd.read_csv(os.path.join(data_path, 'SHF\\', 'FU.SHF_20180102-20210528_daily.csv'))
 # data['trade_date'] = pd.to_datetime(data['trade_date'], format='%Y%m%d')
 # data = data.sort_values(by='trade_date', ascending=True)
@@ -107,13 +115,6 @@ def MaxMinNormal(data):
 
 
 if __name__ == '__main__':
-    father_dir = os.path.abspath(os.path.dirname(os.getcwd()))  # 上一级目录
-    grandfather_dir = os.path.abspath(os.path.join(os.getcwd(), "../.."))  # 上上级目录，snowballArb根目录
-    DCE_path = os.path.join(father_dir, 'data', 'tushare', 'DCE\\')
-    SHF_path = os.path.join(father_dir, 'data', 'tushare', 'SHF\\')
-    ZCE_path = os.path.join(father_dir, 'data', 'tushare', 'ZCE\\')
-    prices_path = os.path.join(father_dir, 'data', 'prices\\')
-    factors_path = os.path.join(father_dir, 'data', 'factors\\')
     start, end = '20180102', '20210601'
     trade_cal = get_cal_date(start, end)
 

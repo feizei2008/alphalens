@@ -1,0 +1,15 @@
+## 介绍
+### 文档学习
+1. ..\alphalens\learn_al\Alphalens.pdf
+### 期货主力合约数据处理和收盘价复权
+1. ..\alphalens\data_feed\tushare_feed.py
+2. 从tushare获取期货主力合约映射的具体合约代码
+3. 拼接成主力合约，以最早的合约为基期，对后续的合约进行复权，避免换月价格跳空的影响
+4. 生成经过复权处理的期货主力合约文件
+### 准备好alphalens需要的price和factor文件格式
+1. ..\alphalens\data_feed\prepare_for_alphalens.py
+2. price文件用于生成后续计算所需的收益率数据，具体格式参见csv文件
+3. factor文件为因子值，为日期、合约代码双重索引格式，示例因子为日频5日对数收益率因子
+4. 因子进行去极值、标准化处理（可选）
+### 跑alphalens，进行单因子分析
+1. ..\alphalens\learn_al\demo.ipynb

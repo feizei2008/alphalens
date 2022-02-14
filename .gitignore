@@ -22,3 +22,16 @@ dist
 
 # Emacs temp files.
 *~
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+data/
+.idea/.gitignore
+TA_Lib-0.4.24-cp38-cp38-win_amd64.whl
