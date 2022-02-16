@@ -1,7 +1,10 @@
 import logging
 import sys
 from pathlib import Path
+import datetime
 
+
+today = f'%s' % datetime.date.today()
 
 logger = logging.getLogger("alphalens")
 logger.setLevel(logging.INFO)
@@ -10,7 +13,8 @@ formatter = logging.Formatter(
     fmt="%(levelname)s :%(asctime)s %(name)s %(pathname)s %(message)s",
     datefmt="%Y-%m-%d  %H:%M:%S"
 )
-log_path = Path(__file__).parent.parent.joinpath("alphalens.log").resolve()
+# log_path = Path(__file__).parent.parent.joinpath("alphalens.log").resolve()
+log_path = Path(__file__).parent.parent.joinpath("logs\\alphalens-%s.log" % today).resolve()
 
 file_handler = logging.FileHandler(log_path, encoding='utf-8')
 file_handler.setFormatter(formatter)

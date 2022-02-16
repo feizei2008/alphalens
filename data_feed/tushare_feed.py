@@ -11,7 +11,7 @@ from utils.config_reader import ConfigReader
 from utils.log import logger
 from utils.common import get_file_list
 
-config_reader = ConfigReader('cfg/api.ini')
+config_reader = ConfigReader('config/api.ini')
 token = config_reader.read_config('tushare', 'token')
 pro = ts.pro_api(token)
 
@@ -201,10 +201,11 @@ def continuous_contract_adj(path):
 
 
 if __name__ == '__main__':
+    """下载并处理日线数据，文件夹位置是老的，暂时不动"""
     t0 = datetime.now().strftime('%Y%m%d')
     start, end = '20180101', '20210618'
     father_dir = os.path.abspath(os.path.dirname(os.getcwd()))  # 上一级目录
-    grandfather_dir = os.path.abspath(os.path.join(os.getcwd(), "../.."))  # 上上级目录，snowballArb根目录
+    grandfather_dir = os.path.abspath(os.path.join(os.getcwd(), "../.."))  # 上上级目录
     data_path = os.path.join(father_dir, "data\\")
     tushare_path = os.path.join(father_dir, "data", "tushare\\")
 
@@ -216,6 +217,4 @@ if __name__ == '__main__':
     # domain_names = pd.read_csv(data_path + 'domain_names.csv')
     # fu = domain_names.loc[domain_names.ts_code == 'BB.DCE', 'mapping_ts_code']
     # tushare_domin_adj(fu)
-
-
 
